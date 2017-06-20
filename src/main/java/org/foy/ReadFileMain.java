@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class ReadFileMain {
     public static void main(String[] args) throws IOException {
-        buildMappedByteBuffer();
+        //buildMappedByteBuffer();
         build();
 
     }
