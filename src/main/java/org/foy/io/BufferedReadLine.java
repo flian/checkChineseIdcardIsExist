@@ -16,7 +16,7 @@ public class BufferedReadLine {
 
     public BufferedReadLine(String filePath) throws UnsupportedEncodingException, FileNotFoundException {
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new File(filePath)));
-        in = new BufferedReader(new InputStreamReader(bis, "utf-8"), 10 * 1024 * 1024);//10M缓存
+        in = new BufferedReader(new InputStreamReader(bis, "utf-8"), bufferSize);//10M缓存
     }
 
     public BufferedReadLine() throws UnsupportedEncodingException, FileNotFoundException {
