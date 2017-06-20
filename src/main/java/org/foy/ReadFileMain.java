@@ -25,7 +25,8 @@ public class ReadFileMain {
         BufferedReadLine bin = new BufferedReadLine();
         List<String> ss = new ArrayList<String>();
         while (bin.hasNext()) {
-            ss.add(bin.readLine());
+            //ss.add(bin.readLine());
+            bin.readLine();
         }
         long end = System.currentTimeMillis();
         System.out.println("读取全部文件花费:" + (end - start) + "ms.");
