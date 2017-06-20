@@ -5,6 +5,9 @@ import org.foy.ds.ArrayHashBCK;
 import org.foy.io.BufferedReadLine;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 
 /**
@@ -16,7 +19,8 @@ import java.io.IOException;
  */
 public class ArrayHashMain {
     public static void main(String[] args) throws IOException {
-        ArrayHash arrayHash = build();
+        ArrayHash arrayHash = build();//buffered reader
+        //ArrayHash arrayHash = build2(); //
         String[] tests = {"510105196105161359"
                 , "510124190602011436", "510101195605034110", "510108200106114667",
                 "510104195503290489" };
@@ -36,7 +40,7 @@ public class ArrayHashMain {
         }
     }
 
-    public static ArrayHash build() throws IOException {
+    public static ArrayHash build() throws IOException {//算快的了
         long start = System.currentTimeMillis();
         ArrayHash arrayHash = new ArrayHash();
         BufferedReadLine bin = new BufferedReadLine();
@@ -45,6 +49,17 @@ public class ArrayHashMain {
         }
         long end = System.currentTimeMillis();
         System.out.println("创建数组hash过滤器花费时间:" + (end - start) + "ms.");
+        return arrayHash;
+    }
+    public static ArrayHash build2() throws IOException {//很慢
+        long start = System.currentTimeMillis();
+        ArrayHash arrayHash = new ArrayHash();
+        List<String> tmp = Files.readAllLines(Paths.get("c:/ids.txt"));
+        for(String s : tmp){
+            arrayHash.addNode(s);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("创建数组hash过滤器花费时间(build2:" + (end - start) + "ms.");
         return arrayHash;
     }
 }
